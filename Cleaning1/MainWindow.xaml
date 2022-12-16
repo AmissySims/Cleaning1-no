@@ -7,7 +7,37 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock x:Name="TitlePage"/>
-        <Frame x:Name="MainFrame"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources\Back.jpg"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="175*"/>
+            <RowDefinition Height="17*"/>
+        </Grid.RowDefinitions>
+        <Rectangle>
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFE2BDFF"/>
+                    <GradientStop Color="#FFE2F3FD" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock x:Name="TitlePage" Text="Химчистка Кристалл"/>
+
+        </StackPanel>
+
+        <Image Source="Resources\лого.png" Opacity="0.00" Grid.RowSpan="3"/>
+        <Rectangle Grid.Row="2">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFE2F3FD" Offset="0"/>
+                    <GradientStop Color="#FFE2BDFF" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+
     </Grid>
 </Window>

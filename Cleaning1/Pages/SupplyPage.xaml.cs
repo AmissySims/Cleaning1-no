@@ -1,6 +1,4 @@
-﻿using Cleaning1.Components;
-using Cleaning1.Pages;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,18 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Cleaning1
+namespace Cleaning1.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для SupplyPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SupplyPage : Page
     {
-        public MainWindow()
+        public SupplyPage()
         {
             InitializeComponent();
-            Navigation.main = this;
-            Navigation.NextPage(new Nav("Авторизация", new AuthPage()));
         }
     }
 }

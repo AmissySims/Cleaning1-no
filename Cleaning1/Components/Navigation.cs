@@ -18,7 +18,7 @@ namespace Cleaning1.Components
             navs.Add(nav);
             Update(nav);
         }
-        public static void BackPage(Nav nav)
+        public static void BackPage()
         {
             if (navs.Count > 1)
                 navs.Remove(navs[navs.Count - 1]);
