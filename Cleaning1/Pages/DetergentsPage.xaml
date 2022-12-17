@@ -5,62 +5,78 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Cleaning1.Pages"
       mc:Ignorable="d" 
+      DataContext="{Binding RelativeSource={RelativeSource Self}}"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DetergentsPage">
 
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-            <StackPanel Orientation="Vertical" Margin="5" >
-                <Image x:Name="DetImage" Source="{Binding Detergent.Photo}" Width="180" Height="180" Margin="5"/>
-                <Button x:Name="AddDetImage" Content="Добавить изображение" Margin="5"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="69*"/>
+            <RowDefinition Height="334*"/>
+            <RowDefinition Height="47*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"  VerticalAlignment="Center" Margin="5">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                <TextBlock Text="Кол-во элементов" Margin="5" />
+                <ComboBox x:Name="CountCb" Margin="5" Width="20" Height="30">
+                    <ComboBoxItem />
+                </ComboBox>
             </StackPanel>
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Bottom">
-                <StackPanel Orientation="Horizontal" Margin="5">
-                    <TextBlock Text="Название" Margin="5"/>
-                    <TextBox x:Name="TitleDet"  Text="{Binding Detergent.Title}" Margin="5" Width="100"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5">
-                    <TextBlock Text="Описание" Margin="5"/>
-                    <TextBox x:Name="DescriptionDet"  Text="{Binding Detergent.Description}" Margin="5" Width="150" Height="70"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5">
-                    <TextBlock Text="Цена" Margin="5"/>
-                    <TextBox x:Name="CostDet"  Text="{Binding Detergent.Cost}" Margin="5" Width="50"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5">
-                    <TextBlock Text="Количество" Margin="5"/>
-                    <TextBox x:Name="QuanityDet"  Text="{Binding Detergent.Quanity}" Margin="5" Width="50"/>
-                </StackPanel>
-                <StackPanel Orientation="Vertical">
-                    <StackPanel>
-                        <Label Content="Поставщики"/>
-                        <ListView x:Name="SuppliersList" ItemsSource="{Binding Supply}" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="5">
-                            <ListView.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <WrapPanel IsItemsHost="True"/>
-                                </ItemsPanelTemplate>
-                            </ListView.ItemsPanel>
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock  Tag="{Binding Title}" Text="{Binding Title}"/>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                        <StackPanel Orientation="Horizontal" Margin="5 0">
-                            <Button x:Name="AddSupplierBtn" Content="Добавить" Margin="5 0"/>
-                            <Button x:Name="DeleteSupplierBtn" Content="Удалить" Margin="5 0"/>
-                            <ComboBox x:Name="OtherSuppliersList" ItemsPanel="{Binding OtherSuppliers}" Width="100" Margin="5 0">
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <ComboBoxItem Tag="{Binding Title}" Content="{Binding Title}"/>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
-                        </StackPanel>
-                    </StackPanel>
-                    <Button x:Name="SaveDetBtn" Content="Сохранить" Margin="5"/>
-                </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                <TextBlock Text="Сортировка" Margin="5"/>
+                <ComboBox x:Name="SortCb" Margin="5" Width="100" Height="30">
+                    <ComboBoxItem />
+                </ComboBox>
             </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                <TextBlock Text="Фильтр" Margin="5" />
+                <ComboBox x:Name="FilterCb" Margin="5" Width="100" Height="30">
+                    <ComboBoxItem />
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                <TextBlock Text="Поиск" Margin="5"/>
+                <TextBox x:Name="FindTb" Margin="5" Width="150" Height="30"/>
+            </StackPanel>
+        </StackPanel>
+        <ListView x:Name="DetergentsList" Grid.Row="1"  d:ItemsSource="{d:SampleData ItemCount=3}" ItemsSource="{Binding DetergentList}" Margin="5">
+            <ListView.ItemTemplate>
+                <DataTemplate >
+                    <Border BorderBrush="#FF7400AF" BorderThickness="2" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="135"/>
+                                <ColumnDefinition Width="500"/>
+                                <ColumnDefinition Width="135"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="26"/>
+                                <RowDefinition Height="52"/>
+                                <RowDefinition Height="36"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="{Binding Photo}" Margin="5" Grid.RowSpan="3"/>
+                            <TextBlock x:Name="TitleTb" Text="{Binding Title}" Grid.Column="1" Margin="5"/>
+                            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" Margin="5">
+                                <TextBlock x:Name="DescrTb" Text="{Binding Description}"/>
+                                <TextBlock x:Name="CostTb" Text="{Binding Cost}"/>
+                                <TextBlock x:Name="QuanityTb" Text="{Binding Quanity}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Margin="5">
+                                <Button x:Name="CreateDetBtn" Content="Редактировать" Margin="2"/>
+                                <Button x:Name="DeleteDetBtn" Content="Удалить" Margin="2"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="5">
+            <Button x:Name="LeftBtn" Content="&lt;" Margin="5" />
+            <Button x:Name="AddServBtn" Content="Добавить" Margin="5"/>
+            <Button x:Name="AddOrderBtn" Content="Создать заказ" Margin="5"/>
+            <Button x:Name="RightBtn" Content="&gt;" Margin="5"/>
+            <TextBlock x:Name="FoundCount" Margin="5"/>
+            <TextBlock x:Name="GeneralCount" Margin="5"/>
         </StackPanel>
     </Grid>
 </Page>
