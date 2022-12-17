@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cleaning1.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace Cleaning1.Components
         public static User AuthUser = null;
         public static bool isAuth = false;
         public static MainWindow main;
+        public static MainPage main1; 
         public static List<Nav> navs = new List<Nav>();
         public static void NextPage (Nav nav)
         {
@@ -37,9 +39,9 @@ namespace Cleaning1.Components
 
        
          public Nav (string Title, Page Page)
-        {
+         {
             this.Title = Title;
             this.Page = Page;
-        }
+         }
     }
 }

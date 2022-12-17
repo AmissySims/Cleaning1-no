@@ -9,7 +9,12 @@
       Title="RegPage">
 
     <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\user\source\repos\Cleaning1\Cleaning1\Resources\Back.jpg" Stretch="Fill" TileMode="None"/>
+
+        </Grid.Background>
+        <Image Source="C:\Users\user\source\repos\Cleaning1\Cleaning1\Resources\лого.png" Opacity="0.15"/>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
             <StackPanel Orientation="Horizontal" >
                 <TextBlock Text="Логин" Margin="5"/>
                 <TextBox x:Name="LoginTb" Margin="5" Width="100"/>

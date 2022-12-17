@@ -9,6 +9,49 @@
       Title="ServicesListPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="69*"/>
+            <RowDefinition Height="334*"/>
+            <RowDefinition Height="47*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                <TextBlock Text="Кол-во элементов" Margin="5" />
+                <ComboBox x:Name="CountCb" Margin="5" Width="30" Height="30">
+                    <ComboBoxItem />
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                <TextBlock Text="Сортировка" Margin="5"/>
+                <ComboBox x:Name="SortCb" Margin="5" Width="100" Height="30">
+                    <ComboBoxItem />
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                <TextBlock Text="Фильтр" Margin="5" />
+                <ComboBox x:Name="FilterCb" Margin="5" Width="100" Height="30">
+                    <ComboBoxItem />
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                <TextBlock Text="Поиск" Margin="5"/>
+                <TextBox x:Name="FindTb" Margin="5" Width="150" Height="30"/>
+            </StackPanel>
+        </StackPanel>
+        <ListView x:Name="ServiceList" Grid.Row="1"  d:ItemsSource="{d:SampleData ItemCount=3}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="5">
+            <Button x:Name="LeftBtn" Content="&lt;" Margin="5" />
+            <Button x:Name="AddServBtn" Content="Добавить" Margin="5"/>
+            <Button x:Name="RightBtn" Content="&gt;" Margin="5"/>
+            <TextBlock x:Name="FoundCount" Margin="5"/>
+            <TextBlock x:Name="GeneralCount" Margin="5"/>
+        </StackPanel>
+
     </Grid>
 </Page>

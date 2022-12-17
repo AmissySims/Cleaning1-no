@@ -74,7 +74,9 @@ namespace Cleaning1.Pages
                         }
                         TimeAuth = 0;
                         Navigation.isAuth = true;
-                        Navigation.NextPage(new Nav("Услуги", new ServicesListPage()));
+                        Navigation.NextPage(new Nav("Химчистка", new MainPage()));
+
+
                     }
                 }
             }
@@ -102,5 +104,7 @@ namespace Cleaning1.Pages
         {
             Navigation.NextPage(new Nav("Регистрация", new RegPage()));
         }
+
+       
     }
 }
