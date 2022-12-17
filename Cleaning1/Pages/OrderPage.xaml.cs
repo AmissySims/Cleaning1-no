@@ -18,9 +18,9 @@ namespace Cleaning1.Pages
     /// <summary>
     /// Логика взаимодействия для OrderPage.xaml
     /// </summary>
-    public partial class AllOrdersPage : Page
+    public partial class OrderPage : Page
     {
-        public AllOrdersPage()
+        public OrderPage()
         {
             InitializeComponent();
         }

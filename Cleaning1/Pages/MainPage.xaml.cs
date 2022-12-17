@@ -50,7 +50,7 @@ namespace Cleaning1.Pages
 
         private void OrdersBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainMainFrame.Navigate(new AllOrdersPage());
+            
         }
 
         private void SupplyBtn_Click(object sender, RoutedEventArgs e)
