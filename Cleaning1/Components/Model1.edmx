@@ -61,6 +61,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Photo" Type="image" />
           <Property Name="Cost" Type="money" />
           <Property Name="Deadline" Type="int" />
           <Property Name="DetergentId" Type="int" Nullable="false" />
@@ -386,6 +387,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Deadline" Type="Int32" />
           <Property Name="DetergentId" Type="Int32" Nullable="false" />
@@ -618,6 +620,7 @@
                 <ScalarProperty Name="DetergentId" ColumnName="DetergentId" />
                 <ScalarProperty Name="Deadline" ColumnName="Deadline" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

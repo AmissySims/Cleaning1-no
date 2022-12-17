@@ -150,7 +150,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\SuppliersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\SupplyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserCabPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,8 +182,14 @@
     <Compile Include="Pages\ServicesListPage.xaml.cs">
       <DependentUpon>ServicesListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SuppliersPage.xaml.cs">
+      <DependentUpon>SuppliersPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SupplyPage.xaml.cs">
       <DependentUpon>SupplyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserCabPage.xaml.cs">
+      <DependentUpon>UserCabPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

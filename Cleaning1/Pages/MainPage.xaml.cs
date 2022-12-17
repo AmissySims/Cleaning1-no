@@ -24,6 +24,12 @@ namespace Cleaning1.Pages
         public MainPage()
         {
             InitializeComponent();
+            Navigation.main1= this;
+            if(Navigation.AuthUser.RoleId == 2)
+            {
+                SupplyBtn.Visibility = Visibility.Collapsed;
+                OrdersBtn.Visibility = Visibility.Collapsed;
+            }
             
         }
 
@@ -44,7 +50,7 @@ namespace Cleaning1.Pages
 
         private void OrdersBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainMainFrame.Navigate(new OrderPage());
+            MainMainFrame.Navigate(new AllOrdersPage());
         }
 
         private void SupplyBtn_Click(object sender, RoutedEventArgs e)

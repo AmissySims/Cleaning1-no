@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Cleaning1.Pages"
       mc:Ignorable="d" 
+      DataContext="{Binding RelativeSource={RelativeSource Self}}"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ServicesListPage">
 
@@ -14,10 +15,10 @@
             <RowDefinition Height="334*"/>
             <RowDefinition Height="47*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <StackPanel Orientation="Horizontal"  VerticalAlignment="Center" Margin="5">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                 <TextBlock Text="Кол-во элементов" Margin="5" />
-                <ComboBox x:Name="CountCb" Margin="5" Width="30" Height="30">
+                <ComboBox x:Name="CountCb" Margin="5" Width="20" Height="30">
                     <ComboBoxItem />
                 </ComboBox>
             </StackPanel>
@@ -38,16 +39,40 @@
                 <TextBox x:Name="FindTb" Margin="5" Width="150" Height="30"/>
             </StackPanel>
         </StackPanel>
-        <ListView x:Name="ServiceList" Grid.Row="1"  d:ItemsSource="{d:SampleData ItemCount=3}">
+        <ListView x:Name="ServiceList" Grid.Row="1"  d:ItemsSource="{d:SampleData ItemCount=3}" ItemsSource="{Binding ServicesList}" Margin="5">
             <ListView.ItemTemplate>
-                <DataTemplate>
-
+                <DataTemplate >
+                    <Border BorderBrush="#FF7400AF" BorderThickness="2" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="135"/>
+                                <ColumnDefinition Width="500"/>
+                                <ColumnDefinition Width="135"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="26"/>
+                                <RowDefinition Height="52"/>
+                                <RowDefinition Height="36"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="{Binding Photo}" Margin="5" Grid.RowSpan="3"/>
+                            <TextBlock x:Name="TitleTb" Text="{Binding Title}" Grid.Column="1" Margin="5"/>
+                            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" Margin="5">
+                                <TextBlock x:Name="CostTb" Text="{Binding Cost}"/>
+                                <TextBlock x:Name="DeadlineTb" Text="{Binding Deadline}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Margin="5">
+                                <Button x:Name="CreateServBtn" Content="Редактировать" Margin="2"/>
+                                <Button x:Name="DeleteServBtn" Content="Удалить" Margin="2"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="5">
             <Button x:Name="LeftBtn" Content="&lt;" Margin="5" />
             <Button x:Name="AddServBtn" Content="Добавить" Margin="5"/>
+            <Button x:Name="AddOrderBtn" Content="Создать заказ" Margin="5"/>
             <Button x:Name="RightBtn" Content="&gt;" Margin="5"/>
             <TextBlock x:Name="FoundCount" Margin="5"/>
             <TextBlock x:Name="GeneralCount" Margin="5"/>

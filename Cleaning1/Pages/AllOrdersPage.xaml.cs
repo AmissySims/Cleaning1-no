@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace Cleaning1.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для OrderPage.xaml
+    /// Логика взаимодействия для AllOrdersPage.xaml
     /// </summary>
     public partial class AllOrdersPage : Page
     {

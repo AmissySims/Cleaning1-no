@@ -22,6 +22,7 @@ namespace Cleaning1.Components
     
         public int Id { get; set; }
         public string Title { get; set; }
+        public byte[] Photo { get; set; }
         public Nullable<decimal> Cost { get; set; }
         public Nullable<int> Deadline { get; set; }
         public int DetergentId { get; set; }
