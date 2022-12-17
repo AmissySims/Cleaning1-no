@@ -42,8 +42,13 @@ namespace Cleaning1.Pages
             string password = PasswordTb.Password.Trim();
             if(TimeAuth < 3)
             {
-                if (login.Length == 0 && password.Length == 0)
+                if (login.Length == 0 || password.Length == 0)
+                {
                     MessageBox.Show("Заполните поля");
+                    TimeAuth += 1;
+                    Properties.Settings.Default.TimeAuth = TimeAuth;
+                }
+                    
                 else
                 {
                     Navigation.AuthUser = DBConnect.db.User.ToList().Find(x => x.Login == login && x.Password == password);

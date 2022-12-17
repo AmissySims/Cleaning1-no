@@ -27,6 +27,7 @@ namespace Cleaning1
             InitializeComponent();
             Navigation.main = this;
             Navigation.NextPage(new Nav("Авторизация", new AuthPage()));
+            
         }
     }
 }

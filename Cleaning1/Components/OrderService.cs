@@ -12,14 +12,13 @@ namespace Cleaning1.Components
     using System;
     using System.Collections.Generic;
     
-    public partial class Supply
+    public partial class OrderService
     {
-        public int SupplierId { get; set; }
-        public int DetergentId { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
-        public Nullable<int> Quanity { get; set; }
+        public int OrderId { get; set; }
+        public int ServicesId { get; set; }
+        public Nullable<int> QuanityThings { get; set; }
     
-        public virtual Detergent Detergent { get; set; }
-        public virtual Supplier Supplier { get; set; }
+        public virtual Order Order { get; set; }
+        public virtual Services Services { get; set; }
     }
 }

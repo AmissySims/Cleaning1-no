@@ -14,14 +14,21 @@ namespace Cleaning1.Components
     
     public partial class Order
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Order()
+        {
+            this.OrderService = new HashSet<OrderService>();
+        }
+    
         public int Id { get; set; }
         public int StatusId { get; set; }
-        public int DetergentId { get; set; }
         public int UserId { get; set; }
         public Nullable<int> Cost { get; set; }
         public Nullable<System.DateTime> CompletionDate { get; set; }
     
-        public virtual Detergent Detergent { get; set; }
         public virtual OrderStatus OrderStatus { get; set; }
+        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderService> OrderService { get; set; }
     }
 }

@@ -37,6 +37,7 @@ namespace Cleaning1.Pages
             string phone = PhoneTb.Text.Trim();
             string adress = AdressTb.Text.Trim();
             var check = DBConnect.db.User.Where(x => x.Login == login && x.Phone == phone).FirstOrDefault();
+
             if (check == null)
             {
                 DBConnect.db.User.Add(new User
@@ -52,6 +53,7 @@ namespace Cleaning1.Pages
                     RoleId = 2
 
                 });
+
                 MessageBox.Show("Успешно");
                 DBConnect.db.SaveChanges();
                 Navigation.BackPage();

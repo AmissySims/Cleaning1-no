@@ -98,6 +98,9 @@
     <Compile Include="Components\Order.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Components\OrderService.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Components\OrderStatus.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

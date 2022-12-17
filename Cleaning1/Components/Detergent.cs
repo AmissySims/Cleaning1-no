@@ -17,16 +17,18 @@ namespace Cleaning1.Components
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Detergent()
         {
-            this.Order = new HashSet<Order>();
+            this.Services = new HashSet<Services>();
             this.Supply = new HashSet<Supply>();
         }
     
         public int Id { get; set; }
         public string Title { get; set; }
-        public Nullable<int> Quantity { get; set; }
+        public string Description { get; set; }
+        public Nullable<decimal> Cost { get; set; }
+        public Nullable<int> Quanity { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
+        public virtual ICollection<Services> Services { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Supply> Supply { get; set; }
     }

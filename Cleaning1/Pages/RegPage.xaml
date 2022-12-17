@@ -16,7 +16,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" >
                 <TextBlock Text="Пароль" Margin="5"/>
-                <PasswordBox x:Name="PasswordTb" Margin="5" Width="100"/>
+                <TextBox x:Name="PasswordTb" Margin="5" Width="100"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" >
                 <TextBlock Text="Фамилия" Margin="5"/>

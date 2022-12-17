@@ -28,6 +28,7 @@ namespace Cleaning1.Components
         public virtual DbSet<Detergent> Detergent { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderService> OrderService { get; set; }
         public virtual DbSet<OrderStatus> OrderStatus { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Services> Services { get; set; }
