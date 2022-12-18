@@ -47,6 +47,7 @@
         </StackPanel>
         <Image Source="C:\Users\user\source\repos\Cleaning1\Cleaning1\Resources\лого.png" 
                Width="auto" Height="auto" Grid.RowSpan="2" VerticalAlignment="Top" />
+        <Button x:Name="EntrBtn" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Выход"  Width="auto" Height="auto" Margin="5" Click="EntrBtn_Click"/>
         <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Stretch">
             <Button x:Name="CabBtn"   Width="auto" Height="auto" Margin="5" Click="CabBtn_Click">
                 <TextBlock TextAlignment="Center"> Личный <LineBreak/> кабинет</TextBlock>
@@ -57,7 +58,7 @@
             </Button>
             <Button x:Name="OrdersBtn"  Content="Заказы" Width="auto" Height="auto" Margin="5" Click="OrdersBtn_Click"/>
             <Button x:Name="SupplyBtn"  Content="Поставки" Width="auto" Height="auto" Margin="5" Click="SupplyBtn_Click"/>
-            <Button x:Name="SupplierBtn"  Content="Поставщики" Width="auto" Height="auto" Margin="5" Click="SupplierBtn_Click"/>
+            <Button x:Name="MyOrdersBtn"  Content="Мои заказы" Width="auto" Height="auto" Margin="5" Click="MyOrdersBtn_Click"/>
 
         </StackPanel>
 

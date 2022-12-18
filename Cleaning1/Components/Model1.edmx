@@ -31,6 +31,7 @@
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="Cost" Type="int" />
           <Property Name="CompletionDate" Type="date" />
+          <Property Name="UserExecutorId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="OrderService">
           <Key>
@@ -135,7 +136,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderService_Order">
+        <Association Name="FK_Order_User1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="UserExecutorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderService_Order1">
           <End Role="Order" Type="Self.Order" Multiplicity="1" />
           <End Role="OrderService" Type="Self.OrderService" Multiplicity="*" />
           <ReferentialConstraint>
@@ -147,7 +160,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderService_Services">
+        <Association Name="FK_OrderService_Services1">
           <End Role="Services" Type="Self.Services" Multiplicity="1" />
           <End Role="OrderService" Type="Self.OrderService" Multiplicity="*" />
           <ReferentialConstraint>
@@ -239,11 +252,15 @@
             <End Role="User" EntitySet="User" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderService_Order" Association="Self.FK_OrderService_Order">
+          <AssociationSet Name="FK_Order_User1" Association="Self.FK_Order_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderService_Order1" Association="Self.FK_OrderService_Order1">
             <End Role="Order" EntitySet="Order" />
             <End Role="OrderService" EntitySet="OrderService" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderService_Services" Association="Self.FK_OrderService_Services">
+          <AssociationSet Name="FK_OrderService_Services1" Association="Self.FK_OrderService_Services1">
             <End Role="Services" EntitySet="Services" />
             <End Role="OrderService" EntitySet="OrderService" />
           </AssociationSet>
@@ -304,11 +321,15 @@
             <End Role="User" EntitySet="User" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderService_Order" Association="DryCleaningModel.FK_OrderService_Order">
+          <AssociationSet Name="FK_Order_User1" Association="DryCleaningModel.FK_Order_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderService_Order1" Association="DryCleaningModel.FK_OrderService_Order1">
             <End Role="Order" EntitySet="Order" />
             <End Role="OrderService" EntitySet="OrderService" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderService_Services" Association="DryCleaningModel.FK_OrderService_Services">
+          <AssociationSet Name="FK_OrderService_Services1" Association="DryCleaningModel.FK_OrderService_Services1">
             <End Role="Services" EntitySet="Services" />
             <End Role="OrderService" EntitySet="OrderService" />
           </AssociationSet>
@@ -350,9 +371,11 @@
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="Cost" Type="Int32" />
           <Property Name="CompletionDate" Type="DateTime" Precision="0" />
+          <Property Name="UserExecutorId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="OrderStatus" Relationship="DryCleaningModel.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatus" />
           <NavigationProperty Name="User" Relationship="DryCleaningModel.FK_Order_User" FromRole="Order" ToRole="User" />
-          <NavigationProperty Name="OrderService" Relationship="DryCleaningModel.FK_OrderService_Order" FromRole="Order" ToRole="OrderService" />
+          <NavigationProperty Name="User1" Relationship="DryCleaningModel.FK_Order_User1" FromRole="Order" ToRole="User" />
+          <NavigationProperty Name="OrderService" Relationship="DryCleaningModel.FK_OrderService_Order1" FromRole="Order" ToRole="OrderService" />
         </EntityType>
         <EntityType Name="OrderService">
           <Key>
@@ -362,8 +385,8 @@
           <Property Name="OrderId" Type="Int32" Nullable="false" />
           <Property Name="ServicesId" Type="Int32" Nullable="false" />
           <Property Name="QuanityThings" Type="Int32" />
-          <NavigationProperty Name="Order" Relationship="DryCleaningModel.FK_OrderService_Order" FromRole="OrderService" ToRole="Order" />
-          <NavigationProperty Name="Services" Relationship="DryCleaningModel.FK_OrderService_Services" FromRole="OrderService" ToRole="Services" />
+          <NavigationProperty Name="Order" Relationship="DryCleaningModel.FK_OrderService_Order1" FromRole="OrderService" ToRole="Order" />
+          <NavigationProperty Name="Services" Relationship="DryCleaningModel.FK_OrderService_Services1" FromRole="OrderService" ToRole="Services" />
         </EntityType>
         <EntityType Name="OrderStatus">
           <Key>
@@ -392,7 +415,7 @@
           <Property Name="Deadline" Type="Int32" />
           <Property Name="DetergentId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Detergent" Relationship="DryCleaningModel.FK_Services_Detergent" FromRole="Services" ToRole="Detergent" />
-          <NavigationProperty Name="OrderService" Relationship="DryCleaningModel.FK_OrderService_Services" FromRole="Services" ToRole="OrderService" />
+          <NavigationProperty Name="OrderService" Relationship="DryCleaningModel.FK_OrderService_Services1" FromRole="Services" ToRole="OrderService" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
@@ -443,6 +466,7 @@
           <Property Name="RoleId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Gender" Relationship="DryCleaningModel.FK_User_Gender1" FromRole="User" ToRole="Gender" />
           <NavigationProperty Name="Order" Relationship="DryCleaningModel.FK_Order_User" FromRole="User" ToRole="Order" />
+          <NavigationProperty Name="Order1" Relationship="DryCleaningModel.FK_Order_User1" FromRole="User" ToRole="Order" />
           <NavigationProperty Name="Role" Relationship="DryCleaningModel.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
         <Association Name="FK_Services_Detergent">
@@ -505,7 +529,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderService_Order">
+        <Association Name="FK_Order_User1">
+          <End Type="DryCleaningModel.User" Role="User" Multiplicity="1" />
+          <End Type="DryCleaningModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="UserExecutorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderService_Order1">
           <End Type="DryCleaningModel.Order" Role="Order" Multiplicity="1" />
           <End Type="DryCleaningModel.OrderService" Role="OrderService" Multiplicity="*" />
           <ReferentialConstraint>
@@ -517,7 +553,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderService_Services">
+        <Association Name="FK_OrderService_Services1">
           <End Type="DryCleaningModel.Services" Role="Services" Multiplicity="1" />
           <End Type="DryCleaningModel.OrderService" Role="OrderService" Multiplicity="*" />
           <ReferentialConstraint>
@@ -581,6 +617,7 @@
           <EntitySetMapping Name="Order">
             <EntityTypeMapping TypeName="DryCleaningModel.Order">
               <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="UserExecutorId" ColumnName="UserExecutorId" />
                 <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />

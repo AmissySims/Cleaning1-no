@@ -74,7 +74,7 @@ namespace Cleaning1.Pages
                         }
                         TimeAuth = 0;
                         Navigation.isAuth = true;
-                        Navigation.NextPage(new Nav("Химчистка", new MainPage()));
+                        Navigation.NextPage(new Nav(new MainPage()));
 
 
                     }
@@ -102,7 +102,7 @@ namespace Cleaning1.Pages
 
         private void RegBtn_Click(object sender, RoutedEventArgs e)
         {
-            Navigation.NextPage(new Nav("Регистрация", new RegPage()));
+            Navigation.NextPage(new Nav(new RegPage()));
         }
 
        

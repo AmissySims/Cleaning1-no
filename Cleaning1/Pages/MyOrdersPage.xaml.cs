@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Cleaning1.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для SuppliersPage.xaml
+    /// Логика взаимодействия для MyOrdersPage.xaml
     /// </summary>
-    public partial class SuppliersPage : Page
+    public partial class MyOrdersPage : Page
     {
-        public SuppliersPage()
+        public MyOrdersPage()
         {
             InitializeComponent();
         }

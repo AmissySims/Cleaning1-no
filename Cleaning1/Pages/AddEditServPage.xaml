@@ -22,15 +22,15 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="5"  HorizontalAlignment="Left">
                     <TextBlock Text="Цена" Margin="5"/>
-                    <TextBox x:Name="CostServ" Margin="5" Text="{Binding Services.Cost}" Width="100"/>
+                    <TextBox x:Name="CostServ" Margin="5" Text="{Binding Services.Cost}" Width="50"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="5"  HorizontalAlignment="Left">
                     <TextBlock Text="Время выполнения (дни)" Margin="5"/>
-                    <TextBox x:Name="DeadlineServ" Margin="5" Text="{Binding Services.Deadline}" Width="100"/>
+                    <TextBox x:Name="DeadlineServ" Margin="5" Text="{Binding Services.Deadline}" Width="50"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="5"  HorizontalAlignment="Left">
                     <TextBlock Text="Средство" Margin="5"/>
-                    <ComboBox x:Name="DetergentServ" ItemsSource="{Binding Detergent}" Width="100" Margin="5">
+                    <ComboBox x:Name="DetergentServ" ItemsSource="{Binding Detergent}" Width="100" Margin="5" SelectedIndex="{Binding Services.DetergentId}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <ComboBoxItem Tag="{Binding Title}" Content="{Binding Title}"/>
@@ -38,7 +38,7 @@
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                 </StackPanel>
-                <Button x:Name="saveServBtn" Content="Сохранить" Margin="5"/>
+                <Button x:Name="SaveServBtn" Content="Сохранить" Margin="5"/>
 
             </StackPanel>
         </StackPanel>

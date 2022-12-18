@@ -29,8 +29,15 @@ namespace Cleaning1.Pages
             {
                 SupplyBtn.Visibility = Visibility.Collapsed;
                 OrdersBtn.Visibility = Visibility.Collapsed;
+                DetergentBtn.Visibility = Visibility.Collapsed;
             }
-            
+            if (Navigation.AuthUser.RoleId == 3)
+            {
+                SupplyBtn.Visibility = Visibility.Collapsed;
+                DetergentBtn.Visibility = Visibility.Collapsed;
+
+            }
+
         }
 
         private void ServiceBtn_Click(object sender, RoutedEventArgs e)
@@ -50,7 +57,7 @@ namespace Cleaning1.Pages
 
         private void OrdersBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            MainMainFrame.Navigate(new AllOrdersPage());
         }
 
         private void SupplyBtn_Click(object sender, RoutedEventArgs e)
@@ -58,9 +65,14 @@ namespace Cleaning1.Pages
             MainMainFrame.Navigate(new SupplyPage());
         }
 
-        private void SupplierBtn_Click(object sender, RoutedEventArgs e)
+        private void EntrBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainMainFrame.Navigate(new SuppliersPage());
+            Navigation.NextPage(new Nav(new AuthPage()));
+        }
+
+        private void MyOrdersBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainMainFrame.Navigate(new MyOrdersPage());
         }
     }
 }

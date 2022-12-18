@@ -66,7 +66,7 @@ namespace Cleaning1.Pages
 
                     MessageBox.Show("Успешно");
                     DBConnect.db.SaveChanges();
-                    Navigation.NextPage(new Nav("Авторизация", new AuthPage()));
+                    Navigation.NextPage(new Nav(new AuthPage()));
                 }
                 else
                     MessageBox.Show("Такой пользователь уже существует");
@@ -76,7 +76,7 @@ namespace Cleaning1.Pages
 
         private void EntrBtn_Click(object sender, RoutedEventArgs e)
         {
-            Navigation.NextPage(new Nav("Авторизация", new AuthPage()));
+            Navigation.NextPage(new Nav(new AuthPage()));
         }
     }
 }

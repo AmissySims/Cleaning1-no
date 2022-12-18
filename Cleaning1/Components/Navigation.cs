@@ -29,18 +29,18 @@ namespace Cleaning1.Components
         private static void Update(Nav nav)
         {
             main.MainFrame.Navigate(nav.Page);
-            main.TitlePage.Text = nav.Title;
+            
         }
     }
     class Nav
     {
-        public string Title { get; set; }
+        
         public Page Page { get; set; }
 
        
-         public Nav (string Title, Page Page)
+         public Nav ( Page Page)
          {
-            this.Title = Title;
+            
             this.Page = Page;
          }
     }

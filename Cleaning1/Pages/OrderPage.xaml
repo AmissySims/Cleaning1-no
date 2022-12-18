@@ -9,6 +9,14 @@
       Title="OrderPage">
 
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
+            <StackPanel Orientation="Vertical" Margin="5">
+                <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal" Margin="5" >
+                    <TextBlock Text="Номер заказа" Margin="5"/>
+                    <TextBox x:Name="OrderIdCb" Text="{Binding Order.Id}" Width="40" Margin="5"/>
+                </StackPanel>
+            </StackPanel>
+            
+        </StackPanel>
     </Grid>
 </Page>

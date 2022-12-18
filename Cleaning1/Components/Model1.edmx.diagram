@@ -5,15 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="6365bfb34df045a08cd752eb7283416c" Name="Diagram1" ZoomLevel="83">
-        <EntityTypeShape EntityType="DryCleaningModel.Detergent" Width="1.5" PointX="3" PointY="8.625" />
+        <EntityTypeShape EntityType="DryCleaningModel.Detergent" Width="1.5" PointX="3" PointY="8.75" />
         <EntityTypeShape EntityType="DryCleaningModel.Gender" Width="1.5" PointX="0.75" PointY="6.125" />
-        <EntityTypeShape EntityType="DryCleaningModel.Order" Width="1.5" PointX="5.25" PointY="1.625" />
-        <EntityTypeShape EntityType="DryCleaningModel.OrderService" Width="1.5" PointX="7.5" PointY="1.875" />
+        <EntityTypeShape EntityType="DryCleaningModel.Order" Width="1.5" PointX="5.25" PointY="1.5" />
+        <EntityTypeShape EntityType="DryCleaningModel.OrderService" Width="1.5" PointX="7.5" PointY="2" />
         <EntityTypeShape EntityType="DryCleaningModel.OrderStatus" Width="1.5" PointX="3" PointY="6.125" />
         <EntityTypeShape EntityType="DryCleaningModel.Role" Width="1.5" PointX="0.75" PointY="2.125" />
-        <EntityTypeShape EntityType="DryCleaningModel.Services" Width="1.5" PointX="5.25" PointY="8.625" />
-        <EntityTypeShape EntityType="DryCleaningModel.Supplier" Width="1.5" PointX="6" PointY="12.875" />
-        <EntityTypeShape EntityType="DryCleaningModel.Supply" Width="1.5" PointX="8.25" PointY="8.75" />
+        <EntityTypeShape EntityType="DryCleaningModel.Services" Width="1.5" PointX="5.25" PointY="8.75" />
+        <EntityTypeShape EntityType="DryCleaningModel.Supplier" Width="1.5" PointX="6" PointY="13" />
+        <EntityTypeShape EntityType="DryCleaningModel.Supply" Width="1.5" PointX="8.25" PointY="8.875" />
         <EntityTypeShape EntityType="DryCleaningModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" />
         <EntityTypeShape EntityType="DryCleaningModel.User" Width="1.5" PointX="3" PointY="1" />
         <AssociationConnector Association="DryCleaningModel.FK_Services_Detergent" />
@@ -21,8 +21,9 @@
         <AssociationConnector Association="DryCleaningModel.FK_User_Gender1" />
         <AssociationConnector Association="DryCleaningModel.FK_Order_OrderStatus" />
         <AssociationConnector Association="DryCleaningModel.FK_Order_User" />
-        <AssociationConnector Association="DryCleaningModel.FK_OrderService_Order" />
-        <AssociationConnector Association="DryCleaningModel.FK_OrderService_Services" />
+        <AssociationConnector Association="DryCleaningModel.FK_Order_User1" />
+        <AssociationConnector Association="DryCleaningModel.FK_OrderService_Order1" />
+        <AssociationConnector Association="DryCleaningModel.FK_OrderService_Services1" />
         <AssociationConnector Association="DryCleaningModel.FK_User_Role" />
         <AssociationConnector Association="DryCleaningModel.FK_Supply_Supplier" />
       </Diagram>

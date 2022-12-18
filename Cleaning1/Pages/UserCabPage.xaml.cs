@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Cleaning1.Components;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +23,18 @@ namespace Cleaning1.Pages
     /// </summary>
     public partial class UserCabPage : Page
     {
-        public UserCabPage()
+
+        public User User { get; set; }
+        public UserCabPage(User user = null)
         {
+            User= user;
+            
             InitializeComponent();
+            if(Navigation.AuthUser.RoleId == 2 && Navigation.AuthUser.RoleId == 3)
+            {
+
+                RoleStack.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }
