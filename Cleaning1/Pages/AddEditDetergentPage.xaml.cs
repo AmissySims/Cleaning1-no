@@ -1,8 +1,10 @@
 ﻿using Cleaning1.Components;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -43,6 +45,19 @@ namespace Cleaning1.Pages
             DBConnect.db.SaveChanges();
             MessageBox.Show("Сохранено");
             NavigationService.GoBack();
+        }
+
+        private void AddDetImage_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog()
+            {
+                Filter = "*.png|*.png|*.jpg|*.jpg|*.jpeg|*.jpeg",
+            };
+            if(openFile.ShowDialog().GetValueOrDefault())
+            {
+                Detergent.Photo = File.ReadAllBytes(openFile.FileName);
+                DetImage.Source = new BitmapImage(new Uri(openFile.FileName));
+            }
         }
     }
 }

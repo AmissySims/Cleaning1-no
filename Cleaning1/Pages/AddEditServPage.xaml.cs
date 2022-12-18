@@ -1,7 +1,9 @@
 ﻿using Cleaning1.Components;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +49,22 @@ namespace Cleaning1.Pages
             if(DetergentServ.SelectedItem== null)
                 return;
             Services.Detergent = DetergentServ.SelectedItem as Detergent;
+        }
+
+        private void AddImageBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog()
+            {
+                Filter = "*.png|*.png|*.jpg|*.jpg|*.jpeg|*.jpeg",
+            };
+            if(openFile.ShowDialog().GetValueOrDefault())
+            {
+                Services.Photo = File.ReadAllBytes(openFile.FileName);
+                ServImage.Source = new BitmapImage(new Uri(openFile.FileName));
+            }
+
+            
+
         }
     }
 }
