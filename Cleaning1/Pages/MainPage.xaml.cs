@@ -37,6 +37,12 @@ namespace Cleaning1.Pages
                 DetergentBtn.Visibility = Visibility.Collapsed;
 
             }
+            if (Navigation.AuthUser.RoleId == 1)
+            {
+                MyOrdersBtn.Visibility = Visibility.Collapsed;
+                
+
+            }
 
         }
 

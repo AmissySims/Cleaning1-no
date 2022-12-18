@@ -49,5 +49,10 @@ namespace Cleaning1.Pages
             }
         }
 
+        private void CreateServBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var selservice = (sender as Button).DataContext as Services;
+            NavigationService.Navigate(new AddEditServPage(selservice));
+        }
     }
 }

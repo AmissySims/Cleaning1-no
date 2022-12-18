@@ -18,11 +18,11 @@
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Bottom">
                 <StackPanel Orientation="Horizontal" Margin="5">
                     <TextBlock Text="Название" Margin="5"/>
-                    <TextBox x:Name="TitleDet"  Text="{Binding Detergent.Title}" Margin="5" Width="100"/>
+                    <TextBox x:Name="TitleDet"  Text="{Binding Detergent.Title}" Margin="5" Width="200"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="5">
                     <TextBlock Text="Описание" Margin="5"/>
-                    <TextBox x:Name="DescriptionDet"  Text="{Binding Detergent.Description}" Margin="5" Width="150" Height="70"/>
+                    <TextBox x:Name="DescriptionDet"  Text="{Binding Detergent.Description}" Margin="5" Width="200" Height="40"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="5">
                     <TextBlock Text="Цена" Margin="5"/>
@@ -33,7 +33,7 @@
                     <TextBox x:Name="QuanityDet"  Text="{Binding Detergent.Quanity}" Margin="5" Width="50"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
-                    <StackPanel>
+                    <!--<StackPanel>
                         <Label Content="Поставщики"/>
                         <ListView x:Name="SuppliersList" ItemsSource="{Binding Supply}" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="5">
                             <ListView.ItemsPanel>
@@ -50,7 +50,7 @@
                         <StackPanel Orientation="Horizontal" Margin="5 0">
                             <Button x:Name="AddSupplierBtn" Content="Добавить" Margin="5 0"/>
                             <Button x:Name="DeleteSupplierBtn" Content="Удалить" Margin="5 0"/>
-                            <ComboBox x:Name="OtherSuppliersList" ItemsPanel="{Binding OtherSuppliers}" Width="100" Margin="5 0">
+                            <ComboBox x:Name="OtherSuppliersList" ItemsPanel="{Binding OtherSupply}" Width="100" Margin="5 0">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <ComboBoxItem Tag="{Binding Title}" Content="{Binding Title}"/>
@@ -58,8 +58,8 @@
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
                         </StackPanel>
-                    </StackPanel>
-                    <Button x:Name="SaveDetBtn" Content="Сохранить" Margin="5"/>
+                    </StackPanel>-->
+                    <Button x:Name="SaveDetBtn" Content="Сохранить" Margin="5" Click="SaveDetBtn_Click"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

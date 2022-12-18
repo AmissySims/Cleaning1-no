@@ -24,10 +24,10 @@ namespace Cleaning1.Pages
     public partial class UserCabPage : Page
     {
 
-        public User User { get; set; }
-        public UserCabPage(User user = null)
+        
+        public UserCabPage()
         {
-            User= user;
+            
             
             InitializeComponent();
             if(Navigation.AuthUser.RoleId == 2 && Navigation.AuthUser.RoleId == 3)

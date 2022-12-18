@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Cleaning1.Components;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,11 +22,27 @@ namespace Cleaning1.Pages
     /// <summary>
     /// Логика взаимодействия для AddEditDetergentPage.xaml
     /// </summary>
-    public partial class AddEditDetergentPage : Page
+    public partial class AddEditDetergentPage : Page, INotifyPropertyChanged
     {
-        public AddEditDetergentPage()
+        public Detergent Detergent { get; set; }
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string propName = null) =>
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+        public AddEditDetergentPage(Detergent _detergent = null)
         {
+            DBConnect.db.Supplier.Load();
+            Detergent = _detergent ?? new Detergent();
             InitializeComponent();
+        }
+
+        private void SaveDetBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(!DBConnect.db.Detergent.Local.Any(Detergent => Detergent.Id == Detergent.Id))
+                DBConnect.db.Detergent.Local.Add(Detergent);
+            DBConnect.db.SaveChanges();
+            MessageBox.Show("Сохранено");
+            NavigationService.GoBack();
         }
     }
 }
