@@ -44,6 +44,7 @@ namespace Cleaning1.Pages
                 AddSupBtn.Visibility = Visibility.Collapsed;
                 AddDetBtn.Visibility = Visibility.Collapsed;
             }
+            GeneralCount.Text = DBConnect.db.Detergent.Local.Count.ToString();
         }
 
         private void CreateDetBtn_Click(object sender, RoutedEventArgs e)
@@ -99,7 +100,7 @@ namespace Cleaning1.Pages
             Detergents = detergentList;
             if (FindTb.Text.Length > 0 && FindTb != null)
             {
-                detergentList = new ObservableCollection<Detergent>(Detergents.Where(x => x.Title.ToLower().StartsWith(FindTb.Text.ToLower().ToLower())));
+                detergentList = new ObservableCollection<Detergent>(Detergents.Where(x => x.Title.ToLower().StartsWith(FindTb.Text.ToLower().ToLower()) || x.Description.ToLower().StartsWith(FindTb.Text.ToLower().ToLower())));
             }
             Detergents = detergentList;
 

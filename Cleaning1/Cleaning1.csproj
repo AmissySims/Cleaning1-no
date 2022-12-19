@@ -99,6 +99,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Components\PartialClasses\Order.Extension.cs" />
+    <Compile Include="Components\PartialClasses\Services.Extension.cs" />
     <Compile Include="Pages\MakeOrderPage.xaml.cs">
       <DependentUpon>MakeOrderPage.xaml</DependentUpon>
     </Compile>

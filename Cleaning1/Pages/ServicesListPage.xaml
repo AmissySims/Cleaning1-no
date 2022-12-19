@@ -68,7 +68,7 @@
                                 <TextBlock x:Name="DeadlineTb" Text="{Binding Deadline}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Margin="5">
-                                <Button x:Name="CreateServBtn" Content="Редактировать" Margin="2" Click="CreateServBtn_Click"/>
+                                <Button x:Name="CreateServBtn" Visibility="{Binding Path=BtnVisible}" Content="Редактировать" Margin="2" Click="CreateServBtn_Click"/>
                                 
                             </StackPanel>
                         </Grid>

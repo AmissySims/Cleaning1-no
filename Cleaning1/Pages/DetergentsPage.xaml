@@ -15,10 +15,10 @@
             <RowDefinition Height="334*"/>
             <RowDefinition Height="47*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal"  VerticalAlignment="Center" Margin="5">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  VerticalAlignment="Center" Margin="5">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                 <TextBlock Text="Кол-во элементов" Margin="5" />
-                <ComboBox x:Name="CountCb" Margin="5" Width="20" Height="30" SelectionChanged="CountCb_SelectionChanged">
+                <ComboBox x:Name="CountCb" Margin="5" Width="50" Height="30"  SelectedIndex="0" SelectionChanged="CountCb_SelectionChanged">
                     <ComboBoxItem Tag="1" Content="Все"/>
                     <ComboBoxItem Tag="2" Content="5"/>
                     <ComboBoxItem Tag="3" Content="10"/>
@@ -27,7 +27,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                 <TextBlock Text="Сортировка" Margin="5"/>
-                <ComboBox x:Name="SortCb" Margin="5" Width="100" Height="30" SelectionChanged="SortCb_SelectionChanged">
+                <ComboBox x:Name="SortCb" Margin="5" Width="80" Height="30"  SelectedIndex="0" SelectionChanged="SortCb_SelectionChanged">
                     <ComboBoxItem Tag="1" Content="Все"/>
                     <ComboBoxItem Tag="2" Content="от А до Я"/>
                     <ComboBoxItem Tag="3" Content="от Я до А"/>
@@ -35,7 +35,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                 <TextBlock Text="Фильтр" Margin="5" />
-                <ComboBox x:Name="FilterCb" Margin="5" Width="100" Height="30" SelectionChanged="FilterCb_SelectionChanged">
+                <ComboBox x:Name="FilterCb" Margin="5" Width="80" Height="30" SelectedIndex="0" SelectionChanged="FilterCb_SelectionChanged">
                     <ComboBoxItem Tag="1" Content="Все"/>
                     <ComboBoxItem Tag="2" Content="Цена больше 500"/>
                     <ComboBoxItem Tag="3" Content="Цена больше 1000"/>
@@ -70,7 +70,7 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Margin="5">
                                 <Button x:Name="CreateDetBtn" Content="Редактировать" Margin="2" Click="CreateDetBtn_Click"/>
-                                <Button x:Name="DeleteDetBtn" Content="Удалить" Margin="2"/>
+                                
                             </StackPanel>
                         </Grid>
                     </Border>
