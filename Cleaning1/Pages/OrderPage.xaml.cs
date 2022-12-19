@@ -30,13 +30,14 @@ namespace Cleaning1.Pages
         public ObservableCollection<OrderStatus> OrderStatus { get; set; }
         public ObservableCollection<User> Users { get; set; }
         public ObservableCollection<Services> Services { get; set; }
-        public IEnumerable<User> User = DBConnect.db.User.Local.Where(x => x.RoleId == 2);
+        public IEnumerable<User> Customers = DBConnect.db.User.Local.Where(x => x.RoleId == 2);
         public IEnumerable<User> Executors = DBConnect.db.User.Local.Where(x => x.RoleId == 3);
         public IEnumerable<OrderService> OrderServices => Order.OrderService;
-
+        
 
         public OrderPage(Order order)
         {
+
             InitializeOrderPage();
             InitializeOrder(order);
             InitializeComponent();
@@ -81,7 +82,7 @@ namespace Cleaning1.Pages
                     Order = Order,
                     Services = service,
                     QuanityThings = 1,
-                    TotalCost = service.Cost
+                    
                 });
             InitializeComponent();
         }
@@ -110,7 +111,7 @@ namespace Cleaning1.Pages
                         Order = Order,
                         Services = service,
                         QuanityThings= 1,
-                        TotalCost = service.Cost
+                        
                     });
                     OnPropertyChanged(nameof(Order));
                 }

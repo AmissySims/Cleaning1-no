@@ -31,18 +31,22 @@ namespace Cleaning1.Pages
                 SupplyBtn.Visibility = Visibility.Collapsed;
                 OrdersBtn.Visibility = Visibility.Collapsed;
                 DetergentBtn.Visibility = Visibility.Collapsed;
-                AddOrderBtn.Visibility = Visibility.Collapsed;
+                Cab1Btn.Visibility = Visibility.Collapsed;
+                
             }
             if (Navigation.AuthUser.RoleId == 3)
             {
                 SupplyBtn.Visibility = Visibility.Collapsed;
                 DetergentBtn.Visibility = Visibility.Collapsed;
+                MyOrdersBtn.Visibility = Visibility.Collapsed;
+                Cab1Btn.Visibility = Visibility.Collapsed;
+                CabBtn.Visibility = Visibility.Collapsed;
 
             }
             if (Navigation.AuthUser.RoleId == 1)
             {
                 MyOrdersBtn.Visibility = Visibility.Collapsed;
-                
+                CabBtn.Visibility = Visibility.Collapsed;
 
             }
 

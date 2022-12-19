@@ -17,7 +17,6 @@ namespace Cleaning1.Components
         public int OrderId { get; set; }
         public int ServicesId { get; set; }
         public Nullable<int> QuanityThings { get; set; }
-        public Nullable<decimal> TotalCost { get; set; }
     
         public virtual Order Order { get; set; }
         public virtual Services Services { get; set; }

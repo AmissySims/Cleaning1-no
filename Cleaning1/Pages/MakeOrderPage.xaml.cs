@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cleaning1.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,13 @@ namespace Cleaning1.Pages
     /// </summary>
     public partial class MakeOrderPage : Page
     {
+        public Order Order { get; set; }
+        public IEnumerable<OrderService> OrderServices => Order.OrderService;
         public MakeOrderPage()
         {
+            
             InitializeComponent();
         }
+
     }
 }

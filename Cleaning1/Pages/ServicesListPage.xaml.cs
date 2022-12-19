@@ -60,5 +60,10 @@ namespace Cleaning1.Pages
             
             NavigationService.Navigate(new OrderPage(ServiceList.SelectedItems.Cast<Services>()));
         }
+
+        private void CountCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -30,7 +30,6 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="StatusId" Type="int" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
-          <Property Name="Cost" Type="int" />
           <Property Name="CompletionDate" Type="date" />
           <Property Name="UserExecutorId" Type="int" Nullable="false" />
         </EntityType>
@@ -42,7 +41,6 @@
           <Property Name="OrderId" Type="int" Nullable="false" />
           <Property Name="ServicesId" Type="int" Nullable="false" />
           <Property Name="QuanityThings" Type="int" />
-          <Property Name="TotalCost" Type="money" />
         </EntityType>
         <EntityType Name="OrderStatus">
           <Key>
@@ -372,7 +370,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="StatusId" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="Cost" Type="Int32" />
           <Property Name="CompletionDate" Type="DateTime" Precision="0" />
           <Property Name="UserExecutorId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="OrderStatus" Relationship="DryCleaningModel.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatus" />
@@ -388,7 +385,6 @@
           <Property Name="OrderId" Type="Int32" Nullable="false" />
           <Property Name="ServicesId" Type="Int32" Nullable="false" />
           <Property Name="QuanityThings" Type="Int32" />
-          <Property Name="TotalCost" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="Order" Relationship="DryCleaningModel.FK_OrderService_Order1" FromRole="OrderService" ToRole="Order" />
           <NavigationProperty Name="Services" Relationship="DryCleaningModel.FK_OrderService_Services1" FromRole="OrderService" ToRole="Services" />
         </EntityType>
@@ -624,7 +620,6 @@
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="UserExecutorId" ColumnName="UserExecutorId" />
                 <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="StatusId" ColumnName="StatusId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -634,7 +629,6 @@
           <EntitySetMapping Name="OrderService">
             <EntityTypeMapping TypeName="DryCleaningModel.OrderService">
               <MappingFragment StoreEntitySet="OrderService">
-                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
                 <ScalarProperty Name="QuanityThings" ColumnName="QuanityThings" />
                 <ScalarProperty Name="ServicesId" ColumnName="ServicesId" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />

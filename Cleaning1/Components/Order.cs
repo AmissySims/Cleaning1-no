@@ -23,7 +23,6 @@ namespace Cleaning1.Components
         public int Id { get; set; }
         public int StatusId { get; set; }
         public int UserId { get; set; }
-        public Nullable<int> Cost { get; set; }
         public Nullable<System.DateTime> CompletionDate { get; set; }
         public int UserExecutorId { get; set; }
     

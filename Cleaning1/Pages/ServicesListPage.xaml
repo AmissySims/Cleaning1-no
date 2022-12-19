@@ -15,28 +15,35 @@
             <RowDefinition Height="334*"/>
             <RowDefinition Height="47*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal"  VerticalAlignment="Center" Margin="5">
+        <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                 <TextBlock Text="Кол-во элементов" Margin="5" />
-                <ComboBox x:Name="CountCb" Margin="5" Width="20" Height="30">
-                    <ComboBoxItem />
+                <ComboBox x:Name="CountCb" Margin="5" Width="50"  SelectedIndex="0" Height="30" SelectionChanged="CountCb_SelectionChanged">
+                    <ComboBoxItem  Tag="1" Content="Все"/>
+                    <ComboBoxItem Tag="2" Content="5"/>
+                    <ComboBoxItem Tag="3" Content="10"/>
+                    <ComboBoxItem Tag="4" Content="20"/>
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                 <TextBlock Text="Сортировка" Margin="5"/>
-                <ComboBox x:Name="SortCb" Margin="5" Width="100" Height="30">
-                    <ComboBoxItem />
+                <ComboBox x:Name="SortCb" Margin="5" Width="100" Height="30" SelectedIndex="0" SelectionChanged="SortCb_SelectionChanged">
+                    <ComboBoxItem  Tag="1" Content="Все"/>
+                    <ComboBoxItem Tag="2" Content="Время выполнения"/>
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                 <TextBlock Text="Фильтр" Margin="5" />
-                <ComboBox x:Name="FilterCb" Margin="5" Width="100" Height="30">
-                    <ComboBoxItem />
+                <ComboBox x:Name="FilterCb"  SelectedIndex="0" Margin="5" Width="100" Height="30" SelectionChanged="FilterCb_SelectionChanged">
+                    <ComboBoxItem  Tag="1" Content="Все"/>
+                    <ComboBoxItem Tag="2" Content="Цена больше 500"/>
+                    <ComboBoxItem Tag="3" Content="Цена больше 1000"/>
+                    <ComboBoxItem Tag="4" Content="Цена больше 2000"/>
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
                 <TextBlock Text="Поиск" Margin="5"/>
-                <TextBox x:Name="FindTb" Margin="5" Width="150" Height="30"/>
+                <TextBox x:Name="FindTb"  Margin="5" Width="150" Height="30" TextChanged="FindTb_TextChanged"/>
             </StackPanel>
         </StackPanel>
         <ListView x:Name="ServiceList" Grid.Row="1"  d:ItemsSource="{d:SampleData ItemCount=3}" ItemsSource="{Binding ServicesList}" Margin="5">
@@ -62,7 +69,7 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Margin="5">
                                 <Button x:Name="CreateServBtn" Content="Редактировать" Margin="2" Click="CreateServBtn_Click"/>
-                                <Button x:Name="DeleteServBtn" Content="Удалить" Margin="2"/>
+                                
                             </StackPanel>
                         </Grid>
                     </Border>
@@ -70,10 +77,10 @@
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="5">
-            <Button x:Name="LeftBtn" Content="&lt;" Margin="5" />
+            <Button x:Name="LeftBtn" Content="&lt;" Margin="5" Click="LeftBtn_Click" />
             <Button x:Name="AddServBtn" Content="Добавить" Margin="5"/>
             <Button x:Name="AddOrderBtn" Content="Создать заказ" Margin="5" Click="AddOrderBtn_Click"/>
-            <Button x:Name="RightBtn" Content="&gt;" Margin="5"/>
+            <Button x:Name="RightBtn" Content="&gt;" Margin="5" Click="RightBtn_Click"/>
             <TextBlock x:Name="FoundCount" Margin="5"/>
             <TextBlock x:Name="GeneralCount" Margin="5"/>
         </StackPanel>

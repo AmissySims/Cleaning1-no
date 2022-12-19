@@ -18,7 +18,7 @@ namespace Cleaning1.Components.PartialClasses
                 return new ObservableCollection<OrderService>(OrderServices);
             }
         }
-        public int? Quanity
+        public int? QuanityThings
         {
             get
             {
@@ -32,5 +32,13 @@ namespace Cleaning1.Components.PartialClasses
                 return this.OrderServices.Sum(x => x.QuanityThings * x.Services.Cost);
             }
         }
+        //public decimal? TotalSum
+        //{
+        //    get
+        //    {
+        //        return this.OrderServices.Sum(x => x.QuanityThings * x.Services.Cost);
+        //    }
+        //}
+
     }
 }

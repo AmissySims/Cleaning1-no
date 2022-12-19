@@ -43,15 +43,28 @@
                             <TextBlock Text="Исполнитель" Margin="5"  />
 
                             <ComboBox ItemsSource="{Binding Executors}" 
-                                      SelectedItem="{Binding Order.User1.FirstName}" Width="100"/>
+                                      SelectedItem="{Binding Order.User1.FirstName}" Width="100">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <ComboBoxItem Tag="{Binding Title}"
+                                                  Content="{Binding Title}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
 
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
                             <TextBlock Text="Заказчик" Margin="5"  />
 
-                            <ComboBox ItemsSource="{Binding Users}"
-                                      DisplayMemberPath="FullName"
-                                      SelectedItem="{Binding Order.User.FirstName}" Width="100"/>
+                            <ComboBox ItemsSource="{Binding Customers}"
+                                      SelectedItem="{Binding Order.User.FirstName}" Width="100">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <ComboBoxItem Tag="{Binding Title}"
+                                                  Content="{Binding Title}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
 
                         </StackPanel>
                     </StackPanel>
@@ -81,7 +94,7 @@
                             <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" Margin="10 0">
 
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Service.Cost, StringFormat=F}" />
+                                    <TextBlock Text="{Binding Services.Cost, StringFormat=F}" />
 
 
                                 </StackPanel>
@@ -91,7 +104,7 @@
                                     <TextBlock Text="Цена"/>
                                     <TextBlock Margin="10 0" x:Name="PPTb" Text="{Binding TotalCost}"/>
                                     <TextBlock Text="Количество вещей"></TextBlock>
-                                    <TextBox Margin="10 0" x:Name="QuTb" Text="{Binding Quanity}" />
+                                    <TextBox Margin="10 0" x:Name="QuTb" Text="{Binding QuanityThings}" />
                                 </StackPanel>
 
                             </StackPanel>
