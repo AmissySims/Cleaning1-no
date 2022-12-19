@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Cleaning1.Pages"
       mc:Ignorable="d" 
+      DataContext="{Binding RelativeSource={RelativeSource Self}}"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="OrderPage">
 
@@ -25,7 +26,7 @@
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
                             <TextBlock Text="Статус заказа"/>
                             <ComboBox x:Name="StatusCb" ItemsSource="{Binding OrderStatus}"
-                                      SelectedItem="{Binding Order.OrderStatus}" SelectionChanged="StatusCb_SelectionChanged" Margin="5 0">
+                                      SelectedItem="{Binding Order.OrderStatus}"  Margin="5 0">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <ComboBoxItem Tag="{Binding Title}"
@@ -39,18 +40,18 @@
                 <StackPanel HorizontalAlignment="Right">
                     <StackPanel Orientation="Vertical">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
-                            <TextBlock Text="Исполнитель"  />
+                            <TextBlock Text="Исполнитель" Margin="5"  />
 
-                            <ComboBox ItemsSource="{Binding Executors}"
-                                      DisplayMemberPath="FullName"
-                                      SelectedItem="{Binding Order.User1}" Width="100"/>
+                            <ComboBox ItemsSource="{Binding Executors}" 
+                                      SelectedItem="{Binding Order.User1.FirstName}" Width="100"/>
 
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
-                            <TextBlock Text="Заказчик"  />
+                            <TextBlock Text="Заказчик" Margin="5"  />
 
-                            <TextBlock Text="{Binding Order.User}"/>
-
+                            <ComboBox ItemsSource="{Binding Users}"
+                                      DisplayMemberPath="FullName"
+                                      SelectedItem="{Binding Order.User.FirstName}" Width="100"/>
 
                         </StackPanel>
                     </StackPanel>
@@ -59,10 +60,10 @@
 
 
         </StackPanel>
-        <ListView Grid.Row="1" x:Name="ProductsList" d:ItemsSource="{d:SampleData ItemCount=3}" ItemsSource="{Binding OrderProducts}">
+        <ListView Grid.Row="1" x:Name="ServiceList" d:ItemsSource="{d:SampleData ItemCount=3}" ItemsSource="{Binding OrderServices}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="#FFD1EEFC" Padding="3" Margin="3" BorderThickness="2" Background="{Binding ColorDis}">
+                    <Border BorderBrush="#FFD1EEFC" Padding="3" Margin="3" BorderThickness="2" >
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100"/>
@@ -80,15 +81,15 @@
                             <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" Margin="10 0">
 
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Cost, StringFormat=F}" />
+                                    <TextBlock Text="{Binding Service.Cost, StringFormat=F}" />
 
 
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1">
                                 <StackPanel Orientation="Horizontal" >
-                                    <TextBlock Text="Закупочная цена"/>
-                                    <TextBlock Margin="10 0" x:Name="PPTb" Text="{Binding Cost}"/>
+                                    <TextBlock Text="Цена"/>
+                                    <TextBlock Margin="10 0" x:Name="PPTb" Text="{Binding TotalCost}"/>
                                     <TextBlock Text="Количество вещей"></TextBlock>
                                     <TextBox Margin="10 0" x:Name="QuTb" Text="{Binding Quanity}" />
                                 </StackPanel>
@@ -102,9 +103,9 @@
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel HorizontalAlignment="Center" Grid.Row="2" Orientation="Horizontal">
-            <Button x:Name="SaveOrderBtn"  Content="Сохранить"/>
-            <Button x:Name="AddProductInOrderBtn" Content="Добавить"/>
-            <Button x:Name="DeleteProductInOrderBtn" Content="Удалить" />
+            <Button x:Name="SaveOrderBtn"  Content="Сохранить" Click="SaveOrderBtn_Click"/>
+            <Button x:Name="AddProductInOrderBtn" Content="Добавить" Click="AddProductInOrderBtn_Click"/>
+            <Button x:Name="DeleteProductInOrderBtn" Content="Удалить" Click="DeleteProductInOrderBtn_Click" />
         </StackPanel>
     </Grid>
 </Page>

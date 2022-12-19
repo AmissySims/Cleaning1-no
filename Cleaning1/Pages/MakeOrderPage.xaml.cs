@@ -1,8 +1,5 @@
-﻿using Cleaning1.Components;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,17 +16,13 @@ using System.Windows.Shapes;
 namespace Cleaning1.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для UserCabPage.xaml
+    /// Логика взаимодействия для MakeOrderPage.xaml
     /// </summary>
-    public partial class UserCabPage : Page
+    public partial class MakeOrderPage : Page
     {
-
-        
-        public UserCabPage()
+        public MakeOrderPage()
         {
-            
-            
-           
+            InitializeComponent();
         }
     }
 }

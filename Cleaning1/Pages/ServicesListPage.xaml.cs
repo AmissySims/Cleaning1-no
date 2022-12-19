@@ -40,7 +40,7 @@ namespace Cleaning1.Pages
         {
             
             DBConnect.db.Services.Load();
-           ServicesList = DBConnect.db.Services.Local;
+            ServicesList = DBConnect.db.Services.Local;
             InitializeComponent();
 
             if(Navigation.AuthUser.RoleId == 2)
@@ -53,6 +53,12 @@ namespace Cleaning1.Pages
         {
             var selservice = (sender as Button).DataContext as Services;
             NavigationService.Navigate(new AddEditServPage(selservice));
+        }
+
+        private void AddOrderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            
+            NavigationService.Navigate(new OrderPage(ServiceList.SelectedItems.Cast<Services>()));
         }
     }
 }

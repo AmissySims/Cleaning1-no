@@ -1,6 +1,7 @@
 ﻿using Cleaning1.Components;
 using System;
 using System.Collections.Generic;
+using System.Fabric.Query;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,7 @@ namespace Cleaning1.Pages
                 SupplyBtn.Visibility = Visibility.Collapsed;
                 OrdersBtn.Visibility = Visibility.Collapsed;
                 DetergentBtn.Visibility = Visibility.Collapsed;
+                AddOrderBtn.Visibility = Visibility.Collapsed;
             }
             if (Navigation.AuthUser.RoleId == 3)
             {
@@ -80,5 +82,7 @@ namespace Cleaning1.Pages
         {
             MainMainFrame.Navigate(new MyOrdersPage());
         }
+
+       
     }
 }

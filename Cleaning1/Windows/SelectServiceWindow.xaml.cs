@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cleaning1.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,19 @@ namespace Cleaning1.Windows
     /// </summary>
     public partial class SelectServiceWindow : Window
     {
-        public SelectServiceWindow()
+        public IEnumerable<Services> Services { get; set; }
+        public IEnumerable<Services> SelectedService => ServiceList.SelectedItems.Cast<Services>();
+        public SelectServiceWindow(IEnumerable<Services> services)
         {
+            Services = DBConnect.db.Services.Local.Except(services);
             InitializeComponent();
         }
+
+        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) =>
+            DialogResult= true;
     }
 }

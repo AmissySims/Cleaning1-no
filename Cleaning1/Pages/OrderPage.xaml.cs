@@ -1,9 +1,12 @@
 ﻿using Cleaning1.Components;
+using Cleaning1.Windows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,9 +30,9 @@ namespace Cleaning1.Pages
         public ObservableCollection<OrderStatus> OrderStatus { get; set; }
         public ObservableCollection<User> Users { get; set; }
         public ObservableCollection<Services> Services { get; set; }
-        public IEnumerable<User> Customer = DBConnect.db.User.Local.Where(x => x.RoleId == 2);
+        public IEnumerable<User> User = DBConnect.db.User.Local.Where(x => x.RoleId == 2);
         public IEnumerable<User> Executors = DBConnect.db.User.Local.Where(x => x.RoleId == 3);
-        public IEnumerable<OrderService> OrderServices { get; set; }
+        public IEnumerable<OrderService> OrderServices => Order.OrderService;
 
 
         public OrderPage(Order order)
@@ -42,7 +45,10 @@ namespace Cleaning1.Pages
 
         private void InitializeOrderPage()
         {
-            throw new NotImplementedException();
+            LoadDBTables();
+            Users = DBConnect.db.User.Local;
+            OrderStatus = DBConnect.db.OrderStatus.Local;
+            Services = DBConnect.db.Services.Local;
         }
 
         private void InitializeOrder(Order order = null)
@@ -52,25 +58,79 @@ namespace Cleaning1.Pages
                 User = Navigation.AuthUser.RoleId == 2 ? Navigation.AuthUser : null,
                 User1 = Navigation.AuthUser.RoleId == 3 ? Navigation.AuthUser : null,
                 CompletionDate= DateTime.Now,
-                OrderStatusId = 1
+                StatusId = 1
             };
+        }
+       
+
+        private static void LoadDBTables()
+        {
+            DBConnect.db.OrderStatus.Load();
+            DBConnect.db.User.Load();
+            DBConnect.db.Services.Load();
+            DBConnect.db.OrderService.Load();
         }
 
         public OrderPage(IEnumerable<Services> addedServices)
         {
-            InitializeComponent();
+            InitializeOrderPage();
             InitializeOrder();
-            foreach(var service in addedServices)
+            foreach (var service in addedServices)
                 DBConnect.db.OrderService.Local.Add(new OrderService()
                 {
                     Order = Order,
-                    Services= service,
+                    Services = service,
                     QuanityThings = 1,
-                    Cost = service.Cost
-                }
-
+                    TotalCost = service.Cost
+                });
+            InitializeComponent();
         }
 
+       
+
+        private void SaveOrderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DBConnect.db.Order.Local.Add(Order);
+            DBConnect.db.SaveChanges();
+            MessageBox.Show("save");
+            
+            
+        }
+
+        private void AddProductInOrderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SelectServiceWindow selectService = new SelectServiceWindow(OrderServices.Select(c => c.Services));
+            selectService.ShowDialog();
+            if(selectService.DialogResult == true)
+            {
+                foreach(var service in selectService.SelectedService)
+                {
+                    DBConnect.db.OrderService.Local.Add(new OrderService()
+                    {
+                        Order = Order,
+                        Services = service,
+                        QuanityThings= 1,
+                        TotalCost = service.Cost
+                    });
+                    OnPropertyChanged(nameof(Order));
+                }
+            }
+        }
+
+        private void DeleteProductInOrderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            IEnumerable<OrderService> orderServices = ServiceList.SelectedItems.Cast<OrderService>();
+            if(orderServices == null)
+                return;
+            foreach(var orderService in orderServices)
+                DBConnect.db.OrderService.Local.Remove(orderService);
+            DBConnect.db.SaveChanges();
+            OnPropertyChanged(nameof(OrderService));
+        }
+
+
         public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string propertyName = null) =>
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }
