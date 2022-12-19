@@ -42,6 +42,7 @@
           <Property Name="OrderId" Type="int" Nullable="false" />
           <Property Name="ServicesId" Type="int" Nullable="false" />
           <Property Name="QuanityThings" Type="int" />
+          <Property Name="TotalCost" Type="money" />
         </EntityType>
         <EntityType Name="OrderStatus">
           <Key>
@@ -387,6 +388,7 @@
           <Property Name="OrderId" Type="Int32" Nullable="false" />
           <Property Name="ServicesId" Type="Int32" Nullable="false" />
           <Property Name="QuanityThings" Type="Int32" />
+          <Property Name="TotalCost" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="Order" Relationship="DryCleaningModel.FK_OrderService_Order1" FromRole="OrderService" ToRole="Order" />
           <NavigationProperty Name="Services" Relationship="DryCleaningModel.FK_OrderService_Services1" FromRole="OrderService" ToRole="Services" />
         </EntityType>
@@ -632,6 +634,7 @@
           <EntitySetMapping Name="OrderService">
             <EntityTypeMapping TypeName="DryCleaningModel.OrderService">
               <MappingFragment StoreEntitySet="OrderService">
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
                 <ScalarProperty Name="QuanityThings" ColumnName="QuanityThings" />
                 <ScalarProperty Name="ServicesId" ColumnName="ServicesId" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
