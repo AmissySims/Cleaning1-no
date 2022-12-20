@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
+using System.Fabric.Query;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -87,6 +88,11 @@ namespace Cleaning1.Pages
         private void OrderCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Refresh();
+        }
+
+        private void AddOrderBtn_Click(object sender, object e)
+        {
+            NavigationService.Navigate(new OrderPage(order: null));
         }
     }
 }

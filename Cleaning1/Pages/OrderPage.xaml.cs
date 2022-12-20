@@ -30,8 +30,8 @@ namespace Cleaning1.Pages
         public ObservableCollection<OrderStatus> OrderStatus { get; set; }
         public ObservableCollection<User> Users { get; set; }
         public ObservableCollection<Services> Services { get; set; }
-        public IEnumerable<User> Customers = DBConnect.db.User.Local.Where(x => x.RoleId == 2);
-        public IEnumerable<User> Executors = DBConnect.db.User.Local.Where(x => x.RoleId == 3);
+        public IEnumerable<User> Customers = DBConnect.db.User.Local.Where(user => user.RoleId == 2);
+        public IEnumerable<User> Executors = DBConnect.db.User.Local.Where(user => user.RoleId == 3);
         public IEnumerable<OrderService> OrderServices => Order.OrderService;
         
 

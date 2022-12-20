@@ -47,7 +47,7 @@ namespace Cleaning1.Pages
             {
                 AddServBtn.Visibility = Visibility.Collapsed;
             }
-            GeneralCount.Text = DBConnect.db.Services.Local.Count().ToString();
+            GeneralCount.Text = DBConnect.db.Services.Count().ToString();
         }
 
         private void CreateServBtn_Click(object sender, RoutedEventArgs e)
@@ -173,8 +173,8 @@ namespace Cleaning1.Pages
 
         private void AddServBtn_Click(object sender, RoutedEventArgs e)
         {
-            var selservice = (sender as Button).DataContext as Services;
-            NavigationService.Navigate(new AddEditServPage(selservice));
+            var selserv = (sender as Button).DataContext as Services;
+            NavigationService.Navigate(new AddEditServPage(selserv));
         }
     }
 }

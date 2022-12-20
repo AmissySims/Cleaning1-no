@@ -31,21 +31,21 @@ namespace Cleaning1.Pages
                 SupplyBtn.Visibility = Visibility.Collapsed;
                 OrdersBtn.Visibility = Visibility.Collapsed;
                 DetergentBtn.Visibility = Visibility.Collapsed;
-                Cab1Btn.Visibility = Visibility.Collapsed;
+                
                 
             }
             if (Navigation.AuthUser.RoleId == 3)
             {
                 SupplyBtn.Visibility = Visibility.Collapsed;
                 DetergentBtn.Visibility = Visibility.Collapsed;
-                MyOrdersBtn.Visibility = Visibility.Collapsed;
-                Cab1Btn.Visibility = Visibility.Collapsed;
+                
+               
                 CabBtn.Visibility = Visibility.Collapsed;
 
             }
             if (Navigation.AuthUser.RoleId == 1)
             {
-                MyOrdersBtn.Visibility = Visibility.Collapsed;
+                
                 CabBtn.Visibility = Visibility.Collapsed;
 
             }
@@ -59,7 +59,7 @@ namespace Cleaning1.Pages
 
         private void CabBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainMainFrame.Navigate(new UserCabPage());
+            //MainMainFrame.Navigate(new UserCabPage());
         }
 
         private void DetergentBtn_Click(object sender, RoutedEventArgs e)
@@ -82,10 +82,7 @@ namespace Cleaning1.Pages
             Navigation.NextPage(new Nav(new AuthPage()));
         }
 
-        private void MyOrdersBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MainMainFrame.Navigate(new MyOrdersPage());
-        }
+       
 
        
     }

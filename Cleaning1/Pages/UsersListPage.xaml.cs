@@ -1,5 +1,4 @@
-﻿using Cleaning1.Components;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,17 +16,14 @@ using System.Windows.Shapes;
 namespace Cleaning1.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MakeOrderPage.xaml
+    /// Логика взаимодействия для ClientsListPage.xaml
     /// </summary>
-    public partial class MakeOrderPage : Page
+    public partial class UsersListPage : Page
     {
-        public Order Order { get; set; }
-        public IEnumerable<OrderService> OrderServices => Order.OrderService;
-        public MakeOrderPage()
+
+        public UsersListPage()
         {
-            
             InitializeComponent();
         }
-
     }
 }

@@ -104,8 +104,8 @@
     <Compile Include="Pages\AllSuppliesPage.xaml.cs">
       <DependentUpon>AllSuppliesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\MakeOrderPage.xaml.cs">
-      <DependentUpon>MakeOrderPage.xaml</DependentUpon>
+    <Compile Include="Pages\UsersListPage.xaml.cs">
+      <DependentUpon>UsersListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SelectServiceWindow.xaml.cs">
       <DependentUpon>SelectServiceWindow.xaml</DependentUpon>
@@ -192,7 +192,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\ClientsPage.xaml">
+    <Page Include="Pages\UsersListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -201,14 +201,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\MakeOrderPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\MyOrdersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -250,17 +242,11 @@
     <Compile Include="Pages\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ClientsPage.xaml.cs">
-      <DependentUpon>ClientsPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\DetergentsPage.xaml.cs">
       <DependentUpon>DetergentsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\MyOrdersPage.xaml.cs">
-      <DependentUpon>MyOrdersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\OrderPage.xaml.cs">
       <DependentUpon>OrderPage.xaml</DependentUpon>

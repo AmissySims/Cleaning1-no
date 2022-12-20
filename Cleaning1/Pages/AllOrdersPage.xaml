@@ -11,8 +11,9 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="8*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="361*"/>
+            <RowDefinition Height="39*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBlock Text="Фильтр по статусу" Margin="5 0" VerticalAlignment="Center"/>
@@ -25,11 +26,11 @@
                 <ComboBoxItem Tag="5" Content="Чистка"/>
                 <ComboBoxItem Tag="6" Content="Отделочные работы"/>
                 <ComboBoxItem Tag="7" Content="Выполнен"/>
-                
+
 
             </ComboBox>
         </StackPanel>
-        <ListView x:Name="OrdersList" Grid.Row="1"  d:ItemsSource="{d:SampleData ItemCount=3}" ItemsSource="{Binding AllOrders}" Margin="0,0,0,37"  >
+        <ListView x:Name="OrdersList" Grid.Row="1"  d:ItemsSource="{d:SampleData ItemCount=3}" ItemsSource="{Binding AllOrders}" Margin="0,0,0,37" Grid.RowSpan="2"  >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border  BorderBrush="#FF7400AF" BorderThickness="2" >
@@ -86,6 +87,10 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" >
+            <Button x:Name="AddOrderBtn" Content="Создать заказ" Margin="5" ButtonBase.Click="AddOrderBtn_Click"/>
+        </StackPanel>
 
 
     </Grid>
