@@ -7,15 +7,15 @@ using System.Windows;
 
 namespace Cleaning1.Components.PartialClasses
 {
-    public partial class Services
+    public partial class Detergent
     {
         public Visibility BtnVisible
         {
             get
             {
-                if(Navigation.AuthUser.RoleId == 2)
+                if (Navigation.AuthUser.RoleId == 3)
                     return Visibility.Collapsed;
-                else 
+                else
                     return Visibility.Visible;
             }
         }

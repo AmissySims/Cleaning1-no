@@ -41,7 +41,7 @@ namespace Cleaning1.Pages
             InitializeComponent();
             if(Navigation.AuthUser.RoleId == 3)
             {
-                AddSupBtn.Visibility = Visibility.Collapsed;
+                
                 AddDetBtn.Visibility = Visibility.Collapsed;
             }
             GeneralCount.Text = DBConnect.db.Detergent.Local.Count.ToString();
@@ -160,6 +160,12 @@ namespace Cleaning1.Pages
         {
             actPage++;
             Sort();
+        }
+
+        private void AddDetBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var seldetergent = (sender as Button).DataContext as Detergent;
+            NavigationService.Navigate(new AddEditDetergentPage(seldetergent));
         }
     }
 }

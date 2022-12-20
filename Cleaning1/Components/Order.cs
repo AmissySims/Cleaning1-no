@@ -21,10 +21,10 @@ namespace Cleaning1.Components
         }
     
         public int Id { get; set; }
-        public int StatusId { get; set; }
-        public int UserId { get; set; }
+        public Nullable<int>StatusId { get; set; }
+        public Nullable<int> UserId { get; set; }
         public Nullable<System.DateTime> CompletionDate { get; set; }
-        public int UserExecutorId { get; set; }
+        public Nullable<int> UserExecutorId { get; set; }
     
         public virtual OrderStatus OrderStatus { get; set; }
         public virtual User User { get; set; }

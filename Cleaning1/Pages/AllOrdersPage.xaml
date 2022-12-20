@@ -73,7 +73,7 @@
                             </ListBox>
                             <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1">
                                 <StackPanel Orientation="Horizontal" >
-                                    <TextBlock  Text="{Binding TotalSum, StringFormat='{} Общая сумма: {0:f} руб.'}"/>
+                                    <TextBlock  Text="{Binding TotalCost, StringFormat='{} Общая сумма: {0:f} руб.'}"/>
                                     <TextBlock Margin="10 0" Text="{Binding QuanityThings, StringFormat='{} Общее количество вещей: {0}'}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">

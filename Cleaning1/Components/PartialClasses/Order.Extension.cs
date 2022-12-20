@@ -11,25 +11,25 @@ namespace Cleaning1.Components.PartialClasses
     public partial class Order
     {
 
-        public ObservableCollection<OrderService> OrderServices
+        public ObservableCollection<OrderService> OrdersService
         {
             get
             {
-                return new ObservableCollection<OrderService>(OrderServices);
+                return new ObservableCollection<OrderService>(OrdersService);
             }
         }
         public int? QuanityThings
         {
             get
             {
-                return this.OrderServices.Sum(x => x.QuanityThings);
+                return this.OrdersService.Sum(x => x.QuanityThings);
             }
         }
         public decimal? TotalCost
         {
             get
             {
-                return this.OrderServices.Sum(x => x.QuanityThings * x.Services.Cost);
+                return this.OrdersService.Sum(x => x.QuanityThings * x.Services.Cost);
             }
         }
         //public decimal? TotalSum

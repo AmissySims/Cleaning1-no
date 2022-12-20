@@ -94,8 +94,9 @@ namespace Cleaning1.Pages
             DBConnect.db.Order.Local.Add(Order);
             DBConnect.db.SaveChanges();
             MessageBox.Show("save");
-            
-            
+            NavigationService.Navigate(new AllOrdersPage());
+
+
         }
 
         private void AddProductInOrderBtn_Click(object sender, RoutedEventArgs e)
@@ -113,7 +114,7 @@ namespace Cleaning1.Pages
                         QuanityThings= 1,
                         
                     });
-                    OnPropertyChanged(nameof(Order));
+                    OnPropertyChanged(nameof(OrderService));
                 }
             }
         }

@@ -170,5 +170,11 @@ namespace Cleaning1.Pages
         {
             Sort();
         }
+
+        private void AddServBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var selservice = (sender as Button).DataContext as Services;
+            NavigationService.Navigate(new AddEditServPage(selservice));
+        }
     }
 }

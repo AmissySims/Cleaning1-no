@@ -98,8 +98,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Components\PartialClasses\Detergent.Extension.cs" />
     <Compile Include="Components\PartialClasses\Order.Extension.cs" />
     <Compile Include="Components\PartialClasses\Services.Extension.cs" />
+    <Compile Include="Pages\AllSuppliesPage.xaml.cs">
+      <DependentUpon>AllSuppliesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MakeOrderPage.xaml.cs">
       <DependentUpon>MakeOrderPage.xaml</DependentUpon>
     </Compile>
@@ -146,7 +150,6 @@
     <Compile Include="Components\OrderStatus.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Components\PartialClasses\DetergentQuanity.cs" />
     <Compile Include="Components\Role.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -178,6 +181,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AllOrdersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AllSuppliesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

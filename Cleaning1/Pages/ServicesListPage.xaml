@@ -78,7 +78,7 @@
         </ListView>
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="5">
             <Button x:Name="LeftBtn" Content="&lt;" Margin="5" Click="LeftBtn_Click" />
-            <Button x:Name="AddServBtn" Content="Добавить" Margin="5"/>
+            <Button x:Name="AddServBtn" Content="Добавить" Margin="5" Click="AddServBtn_Click"/>
             <Button x:Name="AddOrderBtn" Content="Создать заказ" Margin="5" Click="AddOrderBtn_Click"/>
             <Button x:Name="RightBtn" Content="&gt;" Margin="5" Click="RightBtn_Click"/>
             <TextBlock x:Name="FoundCount" Margin="5"/>

@@ -74,7 +74,7 @@ namespace Cleaning1.Pages
 
         private void SupplyBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainMainFrame.Navigate(new SupplyPage());
+            MainMainFrame.Navigate(new AllSuppliesPage());
         }
 
         private void EntrBtn_Click(object sender, RoutedEventArgs e)

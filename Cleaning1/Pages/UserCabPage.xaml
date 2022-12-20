@@ -12,8 +12,8 @@
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Vertical" Margin="5">
-                <Image x:Name="ServImage" Source="{Binding User.Photo}" Width="180" Height="180" Margin="5"/>
-                <Button x:Name="AddImageBtn" Content="Добавить изображение" Margin="5"/>
+                <Image x:Name="UserImage" Source="{Binding User.Photo}" Width="180" Height="180" Margin="5"/>
+                <Button x:Name="AddImageBtn" Content="Добавить изображение" Margin="5" Click="AddImageBtn_Click"/>
             </StackPanel>
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
                 <StackPanel Orientation="Horizontal" >

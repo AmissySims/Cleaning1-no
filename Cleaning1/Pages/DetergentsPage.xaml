@@ -69,7 +69,7 @@
                                 <TextBlock x:Name="QuanityTb" Text="{Binding Quanity}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Margin="5">
-                                <Button x:Name="CreateDetBtn" Content="Редактировать" Margin="2" Click="CreateDetBtn_Click"/>
+                                <Button x:Name="CreateDetBtn" Visibility="{Binding Path=BtnVisible}" Content="Редактировать" Margin="2" Click="CreateDetBtn_Click"/>
                                 
                             </StackPanel>
                         </Grid>
@@ -79,8 +79,8 @@
         </ListView>
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="5">
             <Button x:Name="LeftBtn" Content="&lt;" Margin="5" Click="LeftBtn_Click" />
-            <Button x:Name="AddDetBtn" Content="Добавить" Margin="5"/>
-            <Button x:Name="AddSupBtn" Content="Создать поставку" Margin="5"/>
+            <Button x:Name="AddDetBtn" Content="Добавить" Margin="5" Click="AddDetBtn_Click"/>
+            
             <Button x:Name="RightBtn" Content="&gt;" Margin="5" Click="RightBtn_Click"/>
             <TextBlock x:Name="FoundCount" Margin="5"/>
             <TextBlock x:Name="GeneralCount" Margin="5"/>
