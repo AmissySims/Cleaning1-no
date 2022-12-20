@@ -11,10 +11,7 @@
 
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel Orientation="Vertical" Margin="5">
-                <Image x:Name="UserImage" Source="{Binding User.Photo}" Width="180" Height="180" Margin="5"/>
-                <Button x:Name="AddImageBtn" Content="Добавить изображение" Margin="5" Click="AddImageBtn_Click"/>
-            </StackPanel>
+            
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
                 <StackPanel Orientation="Horizontal" >
                     <TextBlock Text="Логин" Margin="5"/>
@@ -44,8 +41,17 @@
                     <TextBlock Text="Адрес" Margin="5"/>
                     <TextBox x:Name="AdressTb" Margin="5" Text="{Binding User.Adress}" Width="100"/>
                 </StackPanel>
-                
-                <Button x:Name="SaveUserBtn" Content="Сохранить" Margin="5"/>
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Text="Роль" Margin="5"/>
+                    <ComboBox x:Name="RolCb" Margin="5" ItemsSource="{Binding Roles}" Width="100" SelectedIndex="{Binding User.RoleId}" SelectionChanged="RolCb_SelectionChanged" >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <ComboBoxItem Content="{Binding Title}" Tag="{Binding Title}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+                <Button x:Name="SaveUserBtn" Content="Сохранить" Margin="5" ButtonBase.Click="SaveUserBtn_Click"/>
 
             </StackPanel>
         </StackPanel>

@@ -26,7 +26,7 @@
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
                             <TextBlock Text="Статус заказа"/>
                             <ComboBox x:Name="StatusCb" ItemsSource="{Binding OrderStatus}"
-                                      SelectedItem="{Binding Order.OrderStatus}"  Margin="5 0">
+                                      SelectedItem="{Binding Order.OrderStatus}"  Margin="5 0" SelectionChanged="StatusCb_SelectionChanged">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <ComboBoxItem Tag="{Binding Title}"
@@ -43,28 +43,18 @@
                             <TextBlock Text="Исполнитель" Margin="5"  />
 
                             <ComboBox ItemsSource="{Binding Executors}" 
-                                      SelectedItem="{Binding Order.User1.FirstName}" Width="100">
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <ComboBoxItem Tag="{Binding Title}"
-                                                  Content="{Binding Title}"/>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
+                                      SelectedItem="{Binding Order.User1.FirstName}" Width="100"/>
+
+
 
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
                             <TextBlock Text="Заказчик" Margin="5"  />
 
                             <ComboBox ItemsSource="{Binding Customers}"
-                                      SelectedItem="{Binding Order.User.FirstName}" Width="100">
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <ComboBoxItem Tag="{Binding Title}"
-                                                  Content="{Binding Title}"/>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
+                                      SelectedItem="{Binding Order.User.FirstName}" Width="100"/>
+                           
+
 
                         </StackPanel>
                     </StackPanel>

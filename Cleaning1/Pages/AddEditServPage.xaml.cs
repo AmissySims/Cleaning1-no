@@ -26,7 +26,7 @@ namespace Cleaning1.Pages
     {
         public Services Services { get; set; }
         public List<Detergent> Detergents { get; set; }
-        public AddEditServPage(Services _services = null)
+        public AddEditServPage(Services _services )
         {
             DBConnect.db.Detergent.Load();
             Services = _services ?? new Services();
@@ -36,11 +36,13 @@ namespace Cleaning1.Pages
 
         private void SaveServBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(!DBConnect.db.Services.Local.All(Services => Services.Id == Services.Id))
-                DBConnect.db.Services.Local.Add(Services);
+            if (Services.Id == 0)
+            {
+                DBConnect.db.Services.Add(Services);
+            }
             DBConnect.db.SaveChanges();
             MessageBox.Show("Сохранено");
-            NavigationService.GoBack();
+            NavigationService.Navigate(new ServicesListPage());
 
         }
 

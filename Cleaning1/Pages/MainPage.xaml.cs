@@ -40,13 +40,13 @@ namespace Cleaning1.Pages
                 DetergentBtn.Visibility = Visibility.Collapsed;
                 
                
-                CabBtn.Visibility = Visibility.Collapsed;
+                
 
             }
             if (Navigation.AuthUser.RoleId == 1)
             {
                 
-                CabBtn.Visibility = Visibility.Collapsed;
+                
 
             }
 
@@ -82,8 +82,9 @@ namespace Cleaning1.Pages
             Navigation.NextPage(new Nav(new AuthPage()));
         }
 
-       
-
-       
+        private void UsersBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainMainFrame.Navigate(new UsersListPage());
+        }
     }
 }

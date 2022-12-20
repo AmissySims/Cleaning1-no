@@ -49,16 +49,16 @@
                Width="auto" Height="auto" Grid.RowSpan="2" VerticalAlignment="Top" />
         <Button x:Name="EntrBtn" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Выход"  Width="auto" Height="auto" Margin="5" Click="EntrBtn_Click"/>
         <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Stretch">
-            <Button x:Name="CabBtn"   Width="auto" Height="auto" Margin="5" Click="CabBtn_Click">
+            <!--<Button x:Name="CabBtn"   Width="auto" Height="auto" Margin="5" Click="CabBtn_Click">
                 <TextBlock TextAlignment="Center"> Личный <LineBreak/> кабинет</TextBlock>
-            </Button>
+            </Button>-->
             <Button x:Name="ServiceBtn"  Content="Услуги" Width="auto" Height="auto" Margin="5" Click="ServiceBtn_Click"/>
             <Button x:Name="DetergentBtn"   Width="auto" Height="auto" Margin="5" Click="DetergentBtn_Click">
                 <TextBlock TextAlignment="Center"> Моющие <LineBreak/> средства</TextBlock>
             </Button>
             <Button x:Name="OrdersBtn"  Content="Заказы" Width="auto" Height="auto" Margin="5" Click="OrdersBtn_Click"/>
             <Button x:Name="SupplyBtn"  Content="Поставки" Width="auto" Height="auto" Margin="5" Click="SupplyBtn_Click"/>
-
+            <Button x:Name="UsersBtn"  Content="Пользователи" Width="auto" Height="auto" Margin="5" Click="UsersBtn_Click"/>
         </StackPanel>
 
         <Frame x:Name="MainMainFrame" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.Row="1"/>

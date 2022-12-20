@@ -26,27 +26,34 @@ namespace Cleaning1.Pages
     public partial class UserCabPage : Page
     {
         public User User { get; set; }
+        public List<Role> Roles { get; set; }
         
-        public UserCabPage(User _user)
+        public UserCabPage(User _user = null)
         {
             DBConnect.db.User.Load();
             User = _user ?? new User();
+            Roles = DBConnect.db.Role.Local.ToList();
             InitializeComponent();
             
            
         }
 
-        private void AddImageBtn_Click(object sender, RoutedEventArgs e)
+       
+
+        private void SaveUserBtn_Click(object sender, object e)
         {
-            OpenFileDialog openFile = new OpenFileDialog()
-            {
-                Filter = "*.png|*.png|*.jpg|*.jpg|*.jpeg|*.jpeg",
-            };
-            if (openFile.ShowDialog().GetValueOrDefault())
-            {
-                User.Photo = File.ReadAllBytes(openFile.FileName);
-                UserImage.Source = new BitmapImage(new Uri(openFile.FileName));
-            }
+            if (User.Id == 0)
+                DBConnect.db.User.Add(User);
+            DBConnect.db.SaveChanges();
+            MessageBox.Show("Сохранено");
+            NavigationService.Navigate(new UsersListPage());
+        }
+
+        private void RolCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (RolCb.SelectedItem == null)
+                return;
+            User.Role = RolCb.SelectedItem as Role;
         }
     }
 }

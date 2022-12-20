@@ -101,11 +101,11 @@ namespace Cleaning1.Pages
 
         private void AddProductInOrderBtn_Click(object sender, RoutedEventArgs e)
         {
-            SelectServiceWindow selectService = new SelectServiceWindow(OrderServices.Select(c => c.Services));
+            SelectServicesWindow selectService = new SelectServicesWindow(OrderServices.Select(c => c.Services));
             selectService.ShowDialog();
             if(selectService.DialogResult == true)
             {
-                foreach(var service in selectService.SelectedService)
+                foreach(var service in selectService.SelectedServ)
                 {
                     DBConnect.db.OrderService.Local.Add(new OrderService()
                     {
@@ -134,5 +134,10 @@ namespace Cleaning1.Pages
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string propertyName = null) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        private void StatusCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

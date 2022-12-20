@@ -40,11 +40,11 @@ namespace Cleaning1.Pages
 
         private void SaveDetBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(!DBConnect.db.Detergent.Local.Any(Detergent => Detergent.Id == Detergent.Id))
+            if(!DBConnect.db.Detergent.Local.Any(detergent => detergent.Id == Detergent.Id))
                 DBConnect.db.Detergent.Local.Add(Detergent);
             DBConnect.db.SaveChanges();
             MessageBox.Show("Сохранено");
-            NavigationService.GoBack();
+            NavigationService.Navigate(new DetergentsPage());
         }
 
         private void AddDetImage_Click(object sender, RoutedEventArgs e)
